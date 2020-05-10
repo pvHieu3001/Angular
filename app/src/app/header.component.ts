@@ -1,7 +1,7 @@
 import {Component} from '@angular/core'
 
 @Component({
-    template: '<h1>This is a header</h1>',
+    templateUrl: './header.component.html',
     selector: 'head-banner'
 })
 
