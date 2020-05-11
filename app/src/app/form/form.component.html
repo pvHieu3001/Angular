@@ -1,0 +1,32 @@
+<input placeholder="user name" [(ngModel)]='name' #txtUsername>
+<p [style.color]="name.length%2==0 ? 'red' : 'black'">your name: {{name}}</p>
+<code>{{txtUsername.value | json}}</code>
+
+<h1 *ngIf='false'>hàkaaaaadfasdjf</h1>
+<ul>
+    <li *ngFor='let subject of arrSubject'>
+        <p>{{subject}}</p>
+    </li>
+</ul>
+<div *ngIf='isShowForm'>
+    <input type="text" placeholder="English" [(ngModel)]='newEn'>
+    <input type="text" placeholder="Vietnamese" [(ngModel)]='newVn'><br>
+    <button (click)='addWord()'>Thêm mới</button>
+</div>
+<button (click)='isShowForm=true' *ngIf='!isShowForm'>Thêm mới</button>
+
+<select [(ngModel)]='filterStatus'>
+    <option value="all">all</option>
+    <option value="remember">remember</option>
+    <option value="notremember">notremember</option>
+</select>
+<div *ngFor='let word of arrWords'>
+    <div class="word" *ngIf="getShowStatus(word.memorized)">
+        <h4 [ngStyle]="{color:word.memorized ? 'green' : 'red'}">{{word.en}}</h4>
+        <p>{{word.vn}}</p>
+        <button (click)="removeWord(word.id)">Xóa</button>
+        <button (click)="word.memorized=!word.memorized">
+            {{word.memorized?'Chưa thuộc':'Đã thuộc'}}</button>
+    </div>
+    
+</div>

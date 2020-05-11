@@ -1,2 +1,14 @@
-<head-banner></head-banner>
+<app-book [hidden]="forgot"></app-book>
 <span>Welcome {{title}}</span>
+<img *ngIf='false' [src]='imageurl'/>
+<button class="btn" (click)='toggleForgot()'>change</button>
+
+<app-form *ngIf='false'></app-form>
+
+<app-person name="HÙng" age="14"></app-person>
+<app-person name="Vương" age="17"></app-person>
+
+<p>{{value}}</p>
+<head-banner (myclick)="change($event)"></head-banner>
+
+
