@@ -4,9 +4,10 @@
 <button class="btn" (click)='toggleForgot()'>change</button>
 
 <app-form *ngIf='false'></app-form>
+<div *ngFor='let person of people'>
+    <app-person [name]="person.name" [age]="person.age" [gender]="person.gender" (removePerson)='removePersonByName($event)'></app-person>
+</div>
 
-<app-person name="HÙng" age="14"></app-person>
-<app-person name="Vương" age="17"></app-person>
 
 <p>{{value}}</p>
 <head-banner (myclick)="change($event)"></head-banner>

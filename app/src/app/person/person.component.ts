@@ -1,4 +1,4 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit , Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-person',
@@ -8,9 +8,16 @@ import { Component, OnInit , Input} from '@angular/core';
 export class PersonComponent implements OnInit {
   @Input() name:String;
   @Input() age:number;
+  @Input() gender:String;
+  @Output() removePerson = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  clickXoa(){
+    this.removePerson.emit(this.name);
   }
 
 }
