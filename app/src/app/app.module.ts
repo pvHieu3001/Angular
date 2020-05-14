@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {HeaderComponent} from './header.component';
@@ -7,6 +8,9 @@ import { BookComponent } from './book/book.component';
 import { FormComponent } from './form/form.component';
 import {FormsModule} from '@angular/forms';
 import { PersonComponent } from './person/person.component';
+import { ChildComponent } from './child/child.component';
+import { CardComponent } from './card/card.component';
+import {RoundPipe} from './round.pipe';
 
 @NgModule({
   declarations: [
@@ -14,11 +18,15 @@ import { PersonComponent } from './person/person.component';
     HeaderComponent,
     BookComponent,
     FormComponent,
-    PersonComponent
+    PersonComponent,
+    ChildComponent,
+    CardComponent,
+    RoundPipe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
