@@ -6,7 +6,7 @@ import {Http} from '@angular/http'
 export class productService{
     constructor (private http : Http){}
 
-    getProduct(){
+    getProduct():any{
         return this.http.get('http://localhost:8888/BanhMyThuHa_war/product/1/10')
         .toPromise()
         .then(res=>res.json())
