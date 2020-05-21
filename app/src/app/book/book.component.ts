@@ -8,16 +8,13 @@ import {productService} from '../service/product.service'
   providers : [productService]
 })
 export class BookComponent implements OnInit {
-  products:any
-  constructor(private productService: productService) {
-    productService.getProduct()
-    .then(data=>this.products)
-    .catch(err=>console.log(err));
-
-    console.log(this.products);
-  }
+  ip:String
+  constructor(private productService: productService) {}
 
   ngOnInit(): void {
+    this.productService.getProduct()
+    .then(data=>this.ip = data)
+    .catch(err=>console.log(err));
   }
 
 }

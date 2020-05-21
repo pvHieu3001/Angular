@@ -7,10 +7,10 @@ export class productService{
     constructor (private http : Http){}
 
     getProduct():any{
-        return this.http.get('http://localhost:8888/BanhMyThuHa_war/product/1/10')
+        return this.http.get('https://api.ipify.org/?format=json')
         .toPromise()
         .then(res=>res.json())
-        .then(resJson=>resJson.data)
+        .then(resJson=>resJson.ip)
         .catch(res=>console.log(res));
     }
 }
