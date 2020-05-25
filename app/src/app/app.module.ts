@@ -12,6 +12,7 @@ import { ChildComponent } from './child/child.component';
 import { CardComponent } from './card/card.component';
 import {RoundPipe} from './round.pipe';
 import { WeatherComponent } from './weather/weather.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { WeatherComponent } from './weather/weather.component';
     ChildComponent,
     CardComponent,
     RoundPipe,
-    WeatherComponent
+    WeatherComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

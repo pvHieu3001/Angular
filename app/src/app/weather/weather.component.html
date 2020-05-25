@@ -1,3 +1,3 @@
-<h3>weather now!</h3>
-<input placeholder="Enter the palce code">
-<button>Get weather</button>
+<h3>{{cityName==='' ? 'Enter city name' : (cityName + ' is now ' + temp)}}!</h3>
+<input placeholder="Enter the palce code" [(ngModel)]="txtCityName"><br/>
+<button (click)="getWeather()">Get weather</button>

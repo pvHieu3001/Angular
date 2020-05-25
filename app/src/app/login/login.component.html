@@ -1,0 +1,27 @@
+<p>login form!</p>
+<form (submit)='onSubmit(formSignIn)' #formSignIn='ngForm'>
+    <div class="row">
+        <div class="col-md-3">
+            <p>User name</p>
+        </div>
+        <div class="col-md-3">
+            <input placeholder="User name" ngModel #txtUserName="ngModel" name='username' required email>
+            <p *ngIf='txtUserName.touched && txtUserName.errors?.required'>Email is require</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <p>Password</p>
+        </div>
+        <div class="col-md-3">
+            <input placeholder="Password" ngModel name="password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" >
+            <button [disabled]="formSignIn.invalid" class="btn">Submit</button>
+        </div>
+    </div>
+    <p>{{txtUserName.errors | json}}</p>
+</form>
+
