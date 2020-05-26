@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { NgModule} from '@angular/core';
+import { HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {HeaderComponent} from './header.component';
 import { BookComponent } from './book/book.component';
 import { FormComponent } from './form/form.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PersonComponent } from './person/person.component';
 import { ChildComponent } from './child/child.component';
 import { CardComponent } from './card/card.component';
@@ -30,7 +30,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

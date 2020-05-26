@@ -14,7 +14,14 @@
             <p>Password</p>
         </div>
         <div class="col-md-3">
-            <input placeholder="Password" ngModel name="password">
+            <input placeholder="Password" ngModel #txtPassword="ngModel" name="password" required minlength="6" pattern="[a-z]*">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" ngModelGroup="subjects">
+            A:<input type="checkbox" [ngModel]='false' name="A">
+            B:<input type="checkbox" [ngModel]='true' name="B">
+            C:<input type="checkbox" [ngModel]='false' name="C">
         </div>
     </div>
     <div class="row">
@@ -23,5 +30,39 @@
         </div>
     </div>
     <p>{{txtUserName.errors | json}}</p>
+    <p>{{txtPassword.errors | json}}</p>
+</form>
+<br><br>
+
+<p>sign up form!</p>
+<form  [formGroup]="formSignUp">
+    <div class="row">
+        <div class="col-md-3">
+            <p>User name</p>
+        </div>
+        <div class="col-md-3">
+            <input placeholder="User name" formControlName="username">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <p>Password</p>
+        </div>
+        <div class="col-md-3">
+            <input placeholder="Password" formControlName="password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" formGroupName="subject">
+            A1:<input type="checkbox"  formControlName="A1" name="A1">
+            B1:<input type="checkbox"  formControlName="B1" name="B1">
+            C1:<input type="checkbox"  formControlName="C1" name="C1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" >
+            <button (click)='submit()' class="btn-primary">Submit</button>
+        </div>
+    </div>
 </form>
 
