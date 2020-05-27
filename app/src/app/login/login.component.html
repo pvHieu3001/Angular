@@ -42,6 +42,7 @@
         </div>
         <div class="col-md-3">
             <input placeholder="User name" formControlName="username">
+            <p *ngIf="formSignUp.get('username').touched && formSignUp.get('username').invalid">Username is invalid</p>
         </div>
     </div>
     <div class="row">
@@ -61,7 +62,7 @@
     </div>
     <div class="row">
         <div class="col-md-6" >
-            <button (click)='submit()' class="btn-primary">Submit</button>
+            <button (click)='submit()' [disabled]='formSignUp.invalid'>Submit</button>
         </div>
     </div>
 </form>

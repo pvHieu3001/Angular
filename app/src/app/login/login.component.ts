@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Http, Headers} from '@angular/http';
-import {FormGroup, FormControl, FormBuilder} from '@angular/forms'
+import {FormGroup, FormControl, FormBuilder, Validator, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   formSignUp : FormGroup;
   constructor(private http : Http, private fb : FormBuilder) { 
     this.formSignUp = this.fb.group({
-      username : "abc@gmail.com",
+      username : ['',[Validators.required, gmailValidator]],
       password : "",
       subject: this.fb.group({
         A1 : true,
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(formSignIn){
-    const url = 'http://localhost:3000/signin';
+    const url = 'http://localhost:4000/signin';
     const header = new Headers({'Content-Type':'application/json'});
     const body = JSON.stringify(formSignIn.value);
     this.http.post(url, body, {headers:header})
@@ -39,3 +39,10 @@ export class LoginComponent implements OnInit {
   }
 
 } 
+
+function gmailValidator(formControl : FormControl){
+  if(formControl.value.includes('@gmail.com')){
+    return null;
+  }
+  return {gmail : true}
+}
